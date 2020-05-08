@@ -1,0 +1,93 @@
+@mixin flex-center {
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+}
+
+@mixin stretch-both {
+  height : 100%;
+  width  : 100%;
+}
+
+body {
+  font-family : Arial, Helvetica, sans-serif;
+  font-size   : 15px;
+  font-weight : 300;
+}
+
+input.siin {
+  display : none;
+
+  & + .siin {
+    margin     : 43px auto;
+    text-align : center;
+
+    &, .__select, .__images {
+      width      : 100%;
+      max-width  : 600px;
+      background : #eee;
+    }
+
+    .__select:not(.is-active), .__images:not(.is-active), .__images > .__overlay:not(.is-active) {
+      display : none;
+    }
+
+    .__select {
+      height : 150px;
+      @include flex-center();
+    }
+
+    .__images {
+      position  : relative;
+      width : 100%;
+      text-align: left;
+
+      .__image-list {
+        text-align : left;
+        display: contents;
+
+        .__image {
+          cursor   : pointer;
+          height   : 50px;
+          width    : 50px;
+          position : relative;
+          display  : inline-block;
+          margin-right: 10px;
+          margin-bottom : 10px;
+
+          .__overlay {
+            display    : none;
+            @include stretch-both();
+            background : rgba(red, .3);
+
+          }
+
+          .__bg {
+            background-size     : cover;
+            background-position : center;
+            @include stretch-both();
+          }
+
+          &:hover {
+            .__overlay {
+              display : block;
+            }
+          }
+        }
+      }
+
+      .__add{
+        display: inline-block;
+        margin-bottom : 10px;
+      }
+
+      .__overlay {
+        height     : 100%;
+        width      : 100%;
+        position   : absolute;
+        background : rgba(black, .5);
+        @include flex-center();
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+input.siin{
+	display: none;
+	
+	& + .siin {
+		max-width: 300px;
+		width: 100%;
+		margin: 44px auto;
+		text-align: center;
+		.__image-name {
+			margin-bottom: 4px;			
+		}
+
+		.__container {
+			height: 200px;
+			max-width: 300px;
+			width: 100%;	
+
+			.__select, .__image .__bg, .__image .__overlay {
+				border-radius: 8px;
+			}
+
+			.__select {
+				height: 100%;
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: #ddd;
+				display: none;
+				text-align: center;
+				box-sizing: border-box;
+				padding: 0 20px;
+				@media screen and (max-width: 400px){
+					padding: 0 8px;
+				}
+
+				span {
+					cursor: pointer;
+					display: inline-block;	
+					width: 100%;
+					overflow-wrap: break-word;
+				}
+
+				&.is-active {
+					display: flex;
+				}
+			}
+
+
+			.__image {
+				display: none;
+				height: 100%;
+				width: 100%;
+				position: relative;
+
+				.__overlay {
+					height: 100%;
+					width: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: rgba($color: #000000, $alpha: .5);
+					display: none;
+
+					&.is-active {
+						display: block;
+					}
+				}
+
+				.__bg {
+					height: 100%;
+					width: 100%;
+					background-size: cover;
+					background-position: center;
+				}
+
+				&.is-active {
+					display: block;
+				}
+			}
+		}
+
+		.__remove {
+			display: none;
+			
+			span {
+				cursor: pointer;
+				color: #c71616;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			&.is-active {
+				display: block;
+			}
+		}
+	}
+}
+
